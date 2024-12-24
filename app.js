@@ -32,7 +32,6 @@ app.get("/download", async (req, res) => {
 
     const result = await youtubedl(url, options);
 
-    // Encuentra el archivo descargado
     const downloadedFile = fs
       .readdirSync(musicDir)
       .find((file) => file.endsWith(".webm"));
