@@ -31,7 +31,7 @@
 
       try {
         messageDiv.textContent = "Processing your request...";
-        const response = await fetch(`http://localhost:3000/download?url=${encodeURIComponent(urlInput)}`);
+        const response = await fetch(`/download?url=${urlInput}`);
 
         if (response.ok) {
           const blob = await response.blob();
