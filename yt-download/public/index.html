@@ -1,76 +1,57 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YT | Music Downloader</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="utils/image.png" type="image/x-icon">
-  <meta name="description" content="MUSIC DOWNLOADER CODED BY SPECTRE DEV 👾 FREE API">
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="keywords" content="spectre, video, music, google, music, mp3, download, music download, youtube, yt">
 </head>
 <body>
-<form class="content">
-  <code>YouTube music <span>downloader!</span></code>
-  <h1>🔥</h1>
-  <input type="url" id="url-input" class="getI" placeholder="Enter YouTube URL" required />
-  <button type="submit" class="getB">Download</button>
-  <div id="message"></div>
-</form>
+  <form class="content">
+    <code>YouTube music <span>downloader!</span></code>
+    <h1>🔥</h1>
+    <input type="url" id="url-input" class="getI" placeholder="Enter YouTube URL" required />
+    <button type="submit" class="getB">Download</button>
+    <div id="message"></div>
+  </form>
 
-<script>
-  const form = document.querySelector(".content");
-  const messageDiv = document.getElementById("message");
+  <script>
+    const form = document.querySelector(".content");
+    const messageDiv = document.getElementById("message");
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    const urlInput = document.getElementById("url-input").value;
+      const urlInput = document.getElementById("url-input").value;
 
-    if (!urlInput) {
-      messageDiv.textContent = "Please provide a YouTube URL.";
-      return;
-    }
-
-    try {
-      messageDiv.textContent = "Processing your request...";
-      const response = await fetch(`https://ytmusicdownload.vercel.app/download?url=${urlInput}`);
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const downloadUrl = window.URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = downloadUrl;
-        a.download = "audio.mp3";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        messageDiv.textContent = "Download started!";
-        console.log('FILE DOWNLOADED ✅')
-
-      } else {
-        const error = await response.text();
-        messageDiv.textContent = `Error: ${error}`;
+      if (!urlInput) {
+        messageDiv.textContent = "Please provide a YouTube URL.";
+        return;
       }
-    } catch (error) {
-      console.error(error);
-      messageDiv.textContent = "An error occurred while processing your request.";
-    }
-  });
-</script>
 
-<div class="contact">
-    <a href="discord:discord.com/users/852949329320345620">Chat via discord</a>
-    <a href="apiDocs.txt" target="_blank">Api Docs</a>
-</div>
+      try {
+        messageDiv.textContent = "Processing your request...";
+        const response = await fetch(`http://localhost:3000/download?url=${encodeURIComponent(urlInput)}`);
+
+        if (response.ok) {
+          const blob = await response.blob();
+          const downloadUrl = window.URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = downloadUrl;
+          a.download = "audio.mp3";
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          messageDiv.textContent = "Download started!";
+        } else {
+          const error = await response.text();
+          messageDiv.textContent = `Error: ${error}`;
+        }
+      } catch (error) {
+        console.error(error);
+        messageDiv.textContent = "An error occurred while processing your request.";
+      }
+    });
+  </script>
 </body>
 </html>
-
-<!----------------------------->
-<!-- WHAT YA DOING HERE BRO ?-->
-<!------ By spectreDev -------->
-
-<!-- CYA FUCKER! -->
- <!-- version: 1 -->
