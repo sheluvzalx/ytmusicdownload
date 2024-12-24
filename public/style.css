@@ -1,0 +1,76 @@
+body {
+    background-color: #222;
+    user-select: none;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+button {
+    background-color: transparent;
+    border: 1px solid aqua;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px aqua;
+    background-color: aqua;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 200px;
+    left: 43%;
+}
+
+
+input {
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    text-align: center;
+    outline: none;
+    overflow: hidden;
+}
+
+span {
+    color: aqua;
+}
+
+h1 {
+    text-shadow: 0px 0px 10px red;
+}
+
+#message {
+    margin-top: 10px;
+    background-color: #222222c0;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+
+.contact a{
+    background-color: #222222c0;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    text-decoration: none;
+    position: relative;
+    top: 40px;
+    left: 40%;
+    gap: 10px;
+}
+

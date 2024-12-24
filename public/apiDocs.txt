@@ -1,0 +1,53 @@
+🎵 YouTube Music Downloader API Documentation 🎶
+-------------------------------------------
+
+📡 Endpoint: /download
+🚀 Method: GET
+🔑 Query Parameter: url (required)
+
+📄 Description:
+This API allows users to download the audio from a YouTube video in MP3 format. It's simple, fast, and easy to use!
+
+🔑 Query Parameters:
+- url (required): The URL of the YouTube video you wish to download. Make sure the URL is valid.
+
+⚡ Example Request:
+GET http://localhost:3000/download?url=https://www.youtube.com/watch?v=pZmrchEw3pY (page url ofc 😂)
+
+📤 Response:
+- If successful:
+  - HTTP Status: 200 OK ✅
+  - Content-Type: audio/mp3 🎧
+  - The audio file will be downloaded with the name based on the YouTube video title.
+
+- If there is an error:
+  - HTTP Status: 400 Bad Request ⚠️
+    - Error message: "Please provide a valid YouTube URL." 🚫
+
+  - HTTP Status: 500 Internal Server Error ❌
+    - Error message: "Downloaded file not found." (If the file cannot be found after downloading the audio.) 🔍
+    - Error message: "Error processing the request." (If any error occurs while processing the request.) 🛠️
+
+💾 File Naming:
+The audio file will be saved as you want or with the title of the YouTube video if applicable.
+
+📝 How to Use:
+1. Provide a valid YouTube URL as a query parameter (for example: https://www.youtube.com/watch?v=pZmrchEw3pY).
+2. The server will extract the audio from the video and provide the MP3 file for download.
+3. The file will be automatically downloaded as audio.mp3 or with the title of the video.
+
+⚠️ Note:
+- Ensure that the URL provided is a valid YouTube video URL. 🚨
+- The server uses youtube-dl-exec to download and convert the YouTube video to audio. 🖥️
+
+🔗 Example API Call:
+GET http://localhost:3000/download?url=https://www.youtube.com/watch?v=pZmrchEw3pY
+
+🗣️ Contact:
+For any questions or support, please contact me via Discord:
+[Chat via Discord](https://discord.com/users/852949329320345620) 💬
+
+Enjoy your music! 🎵💥
+
+-------------------------------------------
+🧑‍💻 By spectreDev
