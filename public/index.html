@@ -31,7 +31,7 @@
   
       try {
         messageDiv.textContent = "Processing your request...";
-        const response = await fetch(`https://api-jwhj.onrender.com/download?url=${encodeURIComponent(urlInput)}`, {
+        const response = await fetch(`/download?url=${encodeURIComponent(urlInput)}`, {
           method: "GET",
         });
   
