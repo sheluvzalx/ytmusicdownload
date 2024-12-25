@@ -31,14 +31,14 @@
 
       try {
         messageDiv.textContent = "Processing your request...";
-        const response = await fetch(`https://ytmusicdownload.onrender.com/download?url=${urlInput}`);
-
+        const response = await fetch(`https://api-jwhj.onrender.com/download?url=${(urlInput)}`);
+  
         if (response.ok) {
           const blob = await response.blob();
           const downloadUrl = window.URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = downloadUrl;
-          a.download = "audio.mp3";
+          a.download = ".mp3";
           document.body.appendChild(a);
           a.click();
           a.remove();
