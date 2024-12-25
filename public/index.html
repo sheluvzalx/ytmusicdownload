@@ -18,27 +18,29 @@
   <script>
     const form = document.querySelector(".content");
     const messageDiv = document.getElementById("message");
-
+  
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-
+  
       const urlInput = document.getElementById("url-input").value;
-
+  
       if (!urlInput) {
         messageDiv.textContent = "Please provide a YouTube URL.";
         return;
       }
-
+  
       try {
         messageDiv.textContent = "Processing your request...";
-        const response = await fetch(`https://api-jwhj.onrender.com/download?url=${(urlInput)}`);
+        const response = await fetch(`https://api-jwhj.onrender.com/download?url=${encodeURIComponent(urlInput)}`, {
+          method: "GET",
+        });
   
         if (response.ok) {
           const blob = await response.blob();
           const downloadUrl = window.URL.createObjectURL(blob);
           const a = document.createElement("a");
           a.href = downloadUrl;
-          a.download = ".mp3";
+          a.download = "download.mp3"; // Cambia el nombre si lo deseas
           document.body.appendChild(a);
           a.click();
           a.remove();
@@ -53,5 +55,6 @@
       }
     });
   </script>
+  
 </body>
 </html>

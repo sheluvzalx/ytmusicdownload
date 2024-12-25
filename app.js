@@ -11,12 +11,9 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json({ limit: "500mb" }));
 app.use(express.urlencoded({ limit: "500mb", extended: true }));
 app.use(cors());
-
-
-app.use(cors({
-  origin: 'http://localhost:3000/',
-  methods: ['GET', 'POST'],
-}));
+if(cors){
+  console.log('🔥 CORS its working!')
+}
 
 const musicDir = path.join(__dirname, '');
 if (!fs.existsSync(musicDir)) {
